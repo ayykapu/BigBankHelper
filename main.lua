@@ -5,17 +5,18 @@ local function get_player_position()
         log(positionString)
 
         if positionString == "6644.000000/107.000000" then
-            log("pos1")
+            position1_case()
         elseif positionString == "6675.000000/-0.000069" then
-            log("pos2")
+            position2_case()
         elseif positionString == "6675.000000/-100.000000" then
-            log("pos3")
+            position3_case()
         elseif positionString == "6625.000000/-250.000000" then
-            log("pos4")
+            position4_case()
         else 
             log("unknown position")
         end
 end
+
 
 local function execute_after_delay(func, delay)
     managers.enemy:add_delayed_clbk("DelayedGetPlayerPosition", func, TimerManager:game():time() + delay)
@@ -24,3 +25,27 @@ end
 Hooks:PostHook(PlayerStandard, "enter", "BigBankHelperModPostInitManagers", function(self)
     execute_after_delay(get_player_position, 1)
 end)
+
+local function position1_case()
+    log("pos1 case")
+
+end
+
+local function position2_case()
+    log("pos2 case")
+
+end
+
+local function position3_case()
+    log("pos3 case")
+
+end
+
+local function position4_case()
+    log("pos4 case")
+
+end
+
+local function upstairs()
+
+end
