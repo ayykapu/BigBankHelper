@@ -14,7 +14,6 @@ function get_player_position()
         position4_case()
     else
         log("unknown position")
-        position1_case()
     end
 end
 

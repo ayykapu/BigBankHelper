@@ -15,7 +15,7 @@
         },
         {
             "hook_id": "lib/units/beings/player/states/playermaskoff",
-            "script_path": "aim.lua"
+            "script_path": "force_aim.lua"
         }
     ]
 }
