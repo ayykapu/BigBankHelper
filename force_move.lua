@@ -1,7 +1,7 @@
-AutoWalk = {}
-AutoWalk.__index = AutoWalk
+ForceMove = {}
+ForceMove.__index = ForceMove
 
-function AutoWalk:new(duration)
+function ForceMove:new(duration)
     local obj = {
         duration = duration,
         start_time = nil,
@@ -11,11 +11,11 @@ function AutoWalk:new(duration)
     return obj
 end
 
-function AutoWalk:start()
+function ForceMove:start()
     self.start_time = TimerManager:game():time()
     self.is_active = true
 
-    Hooks:PostHook(PlayerStandard, "_determine_move_direction", "ForceMoveDirection", function(playerstate)
+    Hooks:PostHook(PlayerMaskOff, "_update_check_actions", "ForceMoveDirection", function(playerstate)
         if self.is_active then
             mvector3.set_y(playerstate._stick_move, 1)
             mvector3.normalize(playerstate._stick_move)
@@ -27,14 +27,14 @@ function AutoWalk:start()
     end)
 end
 
-function AutoWalk:update()
+function ForceMove:update()
     if self.is_active and (TimerManager:game():time() - self.start_time) > self.duration then
         self:stop()
     end
 end
 
-function AutoWalk:stop()
+function ForceMove:stop()
     self.is_active = false
 end
 
-return AutoWalk
+return ForceMove
