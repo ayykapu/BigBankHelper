@@ -37,4 +37,13 @@ function ForceMove:stop()
     self.is_active = false
 end
 
-return ForceMove
+function execute_movement(dur)
+    _G.force_move = ForceMove:new(dur)
+    _G.force_move:start()
+end
+
+Hooks:Add("GameSetupUpdate", "GameSetupUpdateFunc", function(t, dt)
+    if _G.force_move then
+        _G.force_move:update()
+    end
+end)

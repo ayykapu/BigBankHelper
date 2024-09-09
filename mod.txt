@@ -14,8 +14,12 @@
             "script_path": "force_move.lua"
         },
         {
-            "hook_id": "lib/units/beings/player/states/playermaskoff",
-            "script_path": "force_aim.lua"
+            "hook_id": "lib/units/cameras/fpcameraplayerbase",
+            "script_path": "force_rotate.lua"
+        },
+        {
+            "hook_id": "lib/setups/menusetup",
+            "script_path": "menu_manager.lua"
         }
     ]
 }
